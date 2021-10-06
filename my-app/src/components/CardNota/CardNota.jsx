@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./CardNota.css"
+import {ReactComponent as CloseSVG} from "../../assets/close.svg"
 
 class CardNotas extends Component{
     
@@ -7,7 +8,10 @@ class CardNotas extends Component{
 
         return(
             <div>
-                <h2>{this.props.titulo}</h2>
+                <header>
+                <h2>{this.props.titulo} <CloseSVG/></h2>
+                </header>
+                
                 <p>{this.props.texto}</p>
             </div>
         );
