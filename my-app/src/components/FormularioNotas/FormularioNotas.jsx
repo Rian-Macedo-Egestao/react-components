@@ -27,10 +27,10 @@ class FormularioNotas extends Component {
             <form onSubmit={this.criarNota.bind(this)}>
                 
                 <div className="form-group">
-                    <label for="titulo">Titulo da nota</label>
+                    <label htmlFor="titulo">Titulo da nota</label>
                     <input 
-                    maxlength="30"
-                    class="form-control"
+                    maxLength="30"
+                    className="form-control"
                     id="titulo"
                     type="text" 
                     placeholder="titulo"
@@ -38,8 +38,8 @@ class FormularioNotas extends Component {
                     </input>
                 </div>
                 <div className="form-group">
-                    <label  for="texto">Texto da nota</label>
-                    <textarea class="form-control" id="texto" placeholder="escreva sua nota..."
+                    <label  htmlFor="texto">Texto da nota</label>
+                    <textarea className="form-control" id="texto" placeholder="escreva sua nota..."
                     onChange={this.handleTexto.bind(this)}></textarea>
                 </div>
                 

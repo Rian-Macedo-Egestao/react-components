@@ -1,13 +1,15 @@
 import { Component } from 'react';
 import './assets/App.css';
 import FormularioNotas from './components/FormularioNotas/';
+import ListaDeCategorias from './components/ListaDeCategorias';
 import ListaDeNotas from './components/ListaDeNotas/';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      notas:[]
+      notas:[],
+      categoria:[]
     }
   }
 
@@ -19,6 +21,17 @@ class App extends Component {
     } 
     this.setState(novoEstado);
   }
+  apagarNota(index){
+    console.log("chama apagar: " + index)
+    let arrayNotas = this.state.notas;
+    arrayNotas.splice(index, 1)
+    const novoEstado = {
+      notas:arrayNotas
+    }
+    this.setState(novoEstado)
+  }
+
+  criaCategoria()
 
   render(){
     return (
@@ -28,13 +41,14 @@ class App extends Component {
             <h1 className="text-center">Bloco de Notas</h1>
           </header>
         </div>
-        <div class="container ">
+        <div className="container ">
           <div className="row justify-content-center sessao-margin">
             <div className="col-sm-5"> 
               <FormularioNotas criarNota= {this.criarNota.bind(this)}  />
             </div>
             <div  className="col-sm-5">
-              <ListaDeNotas notas={this.state.notas}/>
+              <ListaDeCategorias/>
+              <ListaDeNotas apagarNota={this.apagarNota.bind(this)} notas={this.state.notas}/>
             </div>
           </div>
         </div>
