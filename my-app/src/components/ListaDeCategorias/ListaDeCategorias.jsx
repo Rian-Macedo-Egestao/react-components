@@ -4,14 +4,19 @@ class ListaDeCategorias extends Component{
     constructor(props){
         super(props);
         this.categoria = "";
+        this.state = {categorias: []}
+    }
+    componentDidMount(){
+        this.props.categorias.inscrever(this.novascategorias.bind(this));
+    }
+    novascategorias(categorias){
+        this.setState({...this.state, categorias})
     }
 
     handlerInputCategoria(evento){
-        console.log(evento.key);
-        if (evento.key  == "Enter"){
-            console.log("adicionado categoria");
+        if (evento.key  === "Enter"){
             this.categoria = evento.target.value;
-            console.log(this.categoria);
+            this.props.criarCategoria(this.categoria);
         }
     }
 
@@ -26,11 +31,12 @@ class ListaDeCategorias extends Component{
                 </div>
                 
                 <ul>
-                    <li>Categoria</li>
-                    <li>Categoria</li>
-                    <li>Categoria</li>
-                    <li>Categoria</li>
-                    <li>Categoria</li>
+                    {this.props.categorias.categorias.map((itemCategoria, index) => {
+                        return (
+                        <li key={index}>{itemCategoria}</li>
+                        );
+                        })
+                    }
                 </ul>
             </div>
 

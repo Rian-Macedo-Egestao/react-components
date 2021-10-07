@@ -7,7 +7,7 @@ class ListaDeNotas extends Component{
         return (
             <div>
                 <ul className=" row list-unstyled">
-                    {this.props.notas.map((nota, index) => {
+                    {this.props.notas.notas.map((nota, index) => {
                         return(
                             <li className="col-12" key= {index}>
                                 <CardNotas indice={index} apagarNota={this.props.apagarNota} titulo = {nota.titulo} texto = {nota.texto}/>
