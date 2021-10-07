@@ -6,10 +6,10 @@ class ListaDeNotas extends Component{
     render(){
         return (
             <div>
-                <ul>
+                <ul className=" row list-unstyled">
                     {this.props.notas.map((nota, index) => {
                         return(
-                            <li key= {index}>
+                            <li className="col-12" key= {index}>
                                 <CardNotas titulo = {nota.titulo} texto = {nota.texto}/>
                             </li>
                         );     

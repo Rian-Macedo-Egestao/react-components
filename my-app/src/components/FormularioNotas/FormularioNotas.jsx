@@ -25,14 +25,26 @@ class FormularioNotas extends Component {
     render(){
         return (
             <form onSubmit={this.criarNota.bind(this)}>
-                <input 
-                type="text" 
-                placeholder="titulo"
-                onChange={this.handleTitulo.bind(this)}>
-                </input>
-                <textarea placeholder="escreva sua nota..."
-                onChange={this.handleTexto.bind(this)}></textarea>
-                <button type="submit">Nova Nota</button>
+                
+                <div className="form-group">
+                    <label for="titulo">Titulo da nota</label>
+                    <input 
+                    maxlength="30"
+                    class="form-control"
+                    id="titulo"
+                    type="text" 
+                    placeholder="titulo"
+                    onChange={this.handleTitulo.bind(this)}>
+                    </input>
+                </div>
+                <div className="form-group">
+                    <label  for="texto">Texto da nota</label>
+                    <textarea class="form-control" id="texto" placeholder="escreva sua nota..."
+                    onChange={this.handleTexto.bind(this)}></textarea>
+                </div>
+                
+                <button className="btn btn-primary" type="submit">Nova Nota</button>
+                
             </form>
         );
 

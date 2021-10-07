@@ -23,14 +23,21 @@ class App extends Component {
   render(){
     return (
       <div>
-        <h1>Bloco de Notas</h1>
-        <div> 
-          <FormularioNotas criarNota= {this.criarNota.bind(this)}  />
+        <div className="">
+          <header className=" row justify-content-md-center bg-success text-light">
+            <h1 className="text-center">Bloco de Notas</h1>
+          </header>
         </div>
-        <div>
-          <ListaDeNotas notas={this.state.notas}/>
+        <div class="container ">
+          <div className="row justify-content-center sessao-margin">
+            <div className="col-sm-5"> 
+              <FormularioNotas criarNota= {this.criarNota.bind(this)}  />
+            </div>
+            <div  className="col-sm-5">
+              <ListaDeNotas notas={this.state.notas}/>
+            </div>
+          </div>
         </div>
-  
       </div>
     );
   }
