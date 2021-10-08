@@ -9,17 +9,20 @@ class Notas {
     }
     notificar(){
         this._inscritos.forEach(func => {
-            func(this.notas)
+            func(this.notas);
         })
 
     }
 
     novaNota(titulo, categoria, texto){
-        const nota = new Nota(titulo, categoria , texto)
+        const nota = new Nota(titulo, categoria , texto);
+        console.log(nota);
         this.notas.push(nota);
+        this.notificar();
     }
     apagarNota(index){
-        this.notas.splice(index, 1)
+        this.notas.splice(index, 1);
+        this.notificar();
     }
 }
 class Nota {

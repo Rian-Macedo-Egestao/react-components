@@ -16,7 +16,7 @@ class ListaDeCategorias extends Component{
     handlerInputCategoria(evento){
         if (evento.key  === "Enter"){
             this.categoria = evento.target.value;
-            this.props.criarCategoria(this.categoria);
+            this.props.categorias.novaCategoria(this.categoria);
         }
     }
 
@@ -31,7 +31,7 @@ class ListaDeCategorias extends Component{
                 </div>
                 
                 <ul>
-                    {this.props.categorias.categorias.map((itemCategoria, index) => {
+                    {this.state.categorias.map((itemCategoria, index) => {
                         return (
                         <li key={index}>{itemCategoria}</li>
                         );

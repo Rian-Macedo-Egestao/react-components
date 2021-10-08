@@ -5,7 +5,7 @@ import {ReactComponent as CloseSVG} from "../../assets/close.svg"
 class CardNotas extends Component{
     apagar(){
         const indice = this.props.indice;
-        this.props.apagarNota(indice);
+        this.props.notas.apagarNota(indice);
     }
     
     render(){
@@ -15,6 +15,7 @@ class CardNotas extends Component{
                 <div className="card-body row">
                     
                     <h2 className="card-title col-12">{this.props.titulo} <CloseSVG onClick={this.apagar.bind(this)}/></h2>       
+                    <h3>{this.props.categoria}</h3>
                     <p className="card-text   col-12">{this.props.texto}</p>
                     
                 </div>

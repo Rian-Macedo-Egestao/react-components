@@ -27,7 +27,7 @@ class App extends Component {
             </div>
             <div  className="col-sm-5">
               <ListaDeCategorias categorias={this.categorias} criarCategoria={this.categorias.novaCategoria.bind(this.categorias)}/>
-              <ListaDeNotas apagarNota={this.notas.apagarNota} notas={this.notas}/>
+              <ListaDeNotas  notas={this.notas}/>
             </div>
           </div>
         </div>

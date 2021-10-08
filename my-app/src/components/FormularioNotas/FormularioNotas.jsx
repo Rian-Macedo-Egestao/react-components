@@ -11,7 +11,9 @@ class FormularioNotas extends Component {
 
     componentDidMount(){
         this.props.categorias.inscrever(this.novasCategorias.bind(this));
+        this.props.categorias.notificar()
     }
+
     novasCategorias(categorias){
         this.setState({...this.state, categorias})
     }
@@ -28,11 +30,14 @@ class FormularioNotas extends Component {
     };
     handleCategoria(evento){
         evento.stopPropagation();
+        console.log(this.categoria)
         this.categoria = evento.target.value;
     }
     criarNota(evento){
         evento.preventDefault();
         evento.stopPropagation();
+        this.categoria = document.getElementById("categoria").value
+        console.log(this.categoria);
         this.props.criarNota(this.titulo, this.categoria, this.texto)
     }
 
@@ -40,14 +45,13 @@ class FormularioNotas extends Component {
         return (
             <form onSubmit={this.criarNota.bind(this)}>
                 <div className="form-group">
-                <select>
-                        {this.props.categorias.categorias.map(
+                <select id="categoria" onChange={this.handleCategoria.bind(this)}>
+                        {this.state.categorias.map(
                             (categoria, index)=>{
                                 return(
-                                    <option onChange={this.handleCategoria.bind(this)} key={index}>{categoria}</option>
+                                    <option value={categoria}  key={index}>{categoria}</option>
                                 );
                             }
-
                         )}
                 </select>
                 </div>
