@@ -7,11 +7,15 @@ class FormularioNotas extends Component {
         this.texto  = "";
         this.categoria = "";
         this.state  = {categorias: []}
+        this.referenciaCategoria = this.novasCategorias.bind(this)
     }
 
     componentDidMount(){
-        this.props.categorias.inscrever(this.novasCategorias.bind(this));
+        this.props.categorias.inscrever(this.referenciaCategoria);
         this.props.categorias.notificar()
+    }
+    componentWillUnmount(){
+        this.props.categorias.desinscrever(this.referenciaCategoria)
     }
 
     novasCategorias(categorias){
