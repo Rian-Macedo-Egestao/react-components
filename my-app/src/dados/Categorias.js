@@ -6,7 +6,7 @@ class Categorias {
     inscrever(func){
         this._inscritos.push(func);
     }
-    desisncrever(func){
+    desinscrever(func){
         this._inscritos = this._inscritos.filter(f => f !== func);
     }
     notificar(){
